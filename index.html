@@ -2,26 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Linked List Project</title>
+    <title>Bookmark List Project</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
+
   <body>
 
+    <section class="container">
+      <article class="main-input">
+        <h1>The Best Bookmark List</h1>
+        <input type="text" class="input-title-field" placeholder="title">
+        <input type="text" class="input-url-field" placeholder="URL">
+        <button type="button" class="submit-button">Submit</button>
+        <p class="error-message"></p>
+      </article>
+
+      <section class="secondary-content">
+        <h2>List</h2>
+          <article class="list1">
+            <div class="display-title-field"></div>
+            <div><a href="" class="display-url-field" target="_blank"></a></div>
+            <button type="button" class="read-button">Read</button>
+            <button type="button" class="remove-button">Remove</button>
+          </article>
+
+      </section>
+    </section>
+
+    <script src="jquery.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
-
-<!--
-Two input fields:
-  input: title of the bookmark
-  input: URL that the bookmark should link to
-
-One for creating the bookmark and adding it to the page
-
-A section for all of the created bookmarks; each bookmark should display:
-  The title of the bookmark
-  The URL of the bookmark (this should be clickable and link to the URL)
-  button: “Mark as Read”
-  button: “Remove” the bookmark
--->
