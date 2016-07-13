@@ -7,17 +7,18 @@ var displayUrl = document.querySelector('.display-url-field');
 var errorMessage = document.querySelector('.error-message');
 var displayCount = document.querySelector('.display-count');
 var count = 0;
+var readCount = document.querySelector('.read-count');
+var countRed = 0;
+var unreadCount = document.querySelector('.unread-count');
+var countUnred = 0;
 
-// var totalRead =
-// var totalUnread =
+
 
 function saveBookmark(count) {
   var title = inputTitle.value;
   var url = inputUrl.value;
   $('.list1').append(bookmarkTemplate(title, url));
   getTotalCount();
-  // count = $('li').length + ": total bookmarks";
-  // displayCount.innerText = count;
 }
 
 function alertMessage() {
@@ -40,10 +41,19 @@ function getTotalCount() {
   count = $('li').length + ": total bookmarks";
   displayCount.innerText = count;
 }
-// var totalCount = document.getElementsByTagName('li');
-// var totalNum = totalCount.length;
-// displayCount.innerText = totalNum;
 
+function getTotalReadCount() {
+  countRed = $('.bookmark').filter('.red').length + ": total read";
+  readCount.innerText = countRed;
+}
+
+function getTotalUnreadCount() {
+  // countUnred = $('.bookmark').filter(count - countRed).length + ": total unread";
+  var totalBookmarks = $('.bookmark').length;
+  var totalRed = $('.red').length;
+  var countUnred = totalBookmarks - totalRed;
+  unreadCount.innerText = countUnred + ": total unread";
+}
 
 $(inputTitle).on('keyup', function () {
   if (inputAreEmpty()) { return disableButton(); }
@@ -58,16 +68,19 @@ $(inputUrl).on('keyup', function () {
 $(submitButton).on('click', function () {
   if (inputAreEmpty()) { return alertMessage(); }
   return saveBookmark();
-
 });
 
 $('.list1').on('click', '.read-button', function () {
   $(this).parents('.bookmark').toggleClass("red");
+  getTotalReadCount();
+  getTotalUnreadCount()
 });
 
 $('.list1').on('click', '.remove-button', function () {
   $(this).parents('.bookmark').remove();
   getTotalCount();
+  getTotalReadCount();
+  getTotalUnreadCount()
 });
 
 function bookmarkTemplate(title, url) {
