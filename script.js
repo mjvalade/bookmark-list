@@ -89,7 +89,6 @@ $('.list1').on('click', '.remove-button', function () {
 });
 
 $('.secondary-content').on('click', '.clear-read-button', function() {
-
   clearRedBookmarks();
 });
 
