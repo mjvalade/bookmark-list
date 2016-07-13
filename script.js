@@ -13,7 +13,6 @@ var unreadCount = document.querySelector('.unread-count');
 var countUnred = 0;
 
 
-
 function saveBookmark(count) {
   var title = inputTitle.value;
   var url = inputUrl.value;
@@ -48,11 +47,17 @@ function getTotalReadCount() {
 }
 
 function getTotalUnreadCount() {
-  // countUnred = $('.bookmark').filter(count - countRed).length + ": total unread";
   var totalBookmarks = $('.bookmark').length;
   var totalRed = $('.red').length;
   var countUnred = totalBookmarks - totalRed;
   unreadCount.innerText = countUnred + ": total unread";
+}
+
+function clearRedBookmarks() {
+  clearHighlighted = $('.bookmark').filter('.red').remove();
+  getTotalCount();
+  getTotalReadCount();
+  getTotalUnreadCount();
 }
 
 $(inputTitle).on('keyup', function () {
@@ -73,14 +78,19 @@ $(submitButton).on('click', function () {
 $('.list1').on('click', '.read-button', function () {
   $(this).parents('.bookmark').toggleClass("red");
   getTotalReadCount();
-  getTotalUnreadCount()
+  getTotalUnreadCount();
 });
 
 $('.list1').on('click', '.remove-button', function () {
   $(this).parents('.bookmark').remove();
   getTotalCount();
   getTotalReadCount();
-  getTotalUnreadCount()
+  getTotalUnreadCount();
+});
+
+$('.secondary-content').on('click', '.clear-read-button', function() {
+
+  clearRedBookmarks();
 });
 
 function bookmarkTemplate(title, url) {
