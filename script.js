@@ -19,6 +19,25 @@ function inputAreEmpty() {
   return (inputTitle.value === "" || inputUrl.value === "");
 }
 
+function disableButton() {
+  submitButton.disabled = true;
+}
+
+function enableButton() {
+  submitButton.disabled = false;
+}
+
+$(inputTitle).on('keyup', function () {
+  if (inputAreEmpty()) { return disableButton(); }
+  return enableButton();
+});
+
+
+$(inputUrl).on('keyup', function () {
+  if (inputAreEmpty()) { return disableButton(); }
+  return enableButton();
+});
+
 $(submitButton).on('click', function () {
   if (inputAreEmpty()) { return alertMessage(); }
   return saveBookmark();
