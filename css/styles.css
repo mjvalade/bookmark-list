@@ -64,7 +64,15 @@ h2 {
   width: 400px;
   height: 75px;
   margin: 4px;
+  /* flex-wrap: wrap; */
   /*border: 1px solid black;*/
+}
+
+li {
+  width: 50%;
+  height: 75px;
+  border: 2px solid black;
+  margin-top: 25px;
 }
 
 div {
