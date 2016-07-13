@@ -51,8 +51,15 @@ h2 {
 .secondary-content {
   height: 75px;
   border-top: 2px solid #405952;
-  display: flex;
-  flex-wrap: wrap;
+/*   display: flex;
+flex-wrap: wrap;
+ */}
+
+.display-count {
+  height: 30px;
+  width: 200px;
+  border: 2px dashed black;
+
 }
 
 .display-title-field,
@@ -68,8 +75,14 @@ h2 {
   /*border: 1px solid black;*/
 }
 
+ul {
+  margin: auto;
+/*   display: flex;
+flex-wrap: wrap;
+ */
+}
 li {
-  width: 50%;
+  width: 75%;
   height: 75px;
   border: 2px solid black;
   margin-top: 25px;
@@ -92,6 +105,10 @@ button {
   margin: auto;
 }
 
+.clear-read-button {
+  height: 25px;
+  width: 150px;
+}
 .submit-button {
   margin: auto;
   margin-top: 5px;

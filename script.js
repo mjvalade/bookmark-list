@@ -1,14 +1,23 @@
 var submitButton = document.querySelector('.submit-button');
+var removeButton = document.querySelector('.remove-button')
 var inputTitle = document.querySelector('.input-title-field');
 var displayTitle = document.querySelector('.display-title-field');
 var inputUrl = document.querySelector('.input-url-field');
 var displayUrl = document.querySelector('.display-url-field');
 var errorMessage = document.querySelector('.error-message');
+var displayCount = document.querySelector('.display-count');
+var count = 0;
 
-function saveBookmark() {
+// var totalRead =
+// var totalUnread =
+
+function saveBookmark(count) {
   var title = inputTitle.value;
   var url = inputUrl.value;
   $('.list1').append(bookmarkTemplate(title, url));
+  getTotalCount();
+  // count = $('li').length + ": total bookmarks";
+  // displayCount.innerText = count;
 }
 
 function alertMessage() {
@@ -27,11 +36,19 @@ function enableButton() {
   submitButton.disabled = false;
 }
 
+function getTotalCount() {
+  count = $('li').length + ": total bookmarks";
+  displayCount.innerText = count;
+}
+// var totalCount = document.getElementsByTagName('li');
+// var totalNum = totalCount.length;
+// displayCount.innerText = totalNum;
+
+
 $(inputTitle).on('keyup', function () {
   if (inputAreEmpty()) { return disableButton(); }
   return enableButton();
 });
-
 
 $(inputUrl).on('keyup', function () {
   if (inputAreEmpty()) { return disableButton(); }
@@ -41,6 +58,7 @@ $(inputUrl).on('keyup', function () {
 $(submitButton).on('click', function () {
   if (inputAreEmpty()) { return alertMessage(); }
   return saveBookmark();
+
 });
 
 $('.list1').on('click', '.read-button', function () {
@@ -49,6 +67,7 @@ $('.list1').on('click', '.read-button', function () {
 
 $('.list1').on('click', '.remove-button', function () {
   $(this).parents('.bookmark').remove();
+  getTotalCount();
 });
 
 function bookmarkTemplate(title, url) {
