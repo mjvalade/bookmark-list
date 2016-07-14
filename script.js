@@ -21,7 +21,7 @@ function saveBookmark(count) {
 }
 
 function alertMessage() {
-    errorMessage.innerText = "Please fill out both";
+    errorMessage.innerText = "Please fill out both fields.";
 }
 
 function inputAreEmpty() {
@@ -70,10 +70,19 @@ $(inputUrl).on('keyup', function () {
   return enableButton();
 });
 
+function isUrl() {
+  var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+  return regexp.test(s);
+}
+
 $(submitButton).on('click', function () {
   if (inputAreEmpty()) { return alertMessage(); }
+  if (!isUrl())$('.input-url-field').value {
+    return errorMessage.innerText = "💀💀Please enter a valid web address."; }
   return saveBookmark();
 });
+
+
 
 $('.list1').on('click', '.read-button', function () {
   $(this).parents('.bookmark').toggleClass("red");
