@@ -20,6 +20,16 @@ function saveBookmark(count) {
   getTotalCount();
 }
 
+// function testUrl(validity) {
+//  var testingUrl = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+//  return testingUrl.test(validity);
+// }
+
+function testUrl(s) {
+ var testingUrl = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+ return testingUrl.test(s);
+}
+
 function alertMessage() {
     errorMessage.innerText = "Please fill out both fields.";
 }
@@ -70,16 +80,14 @@ $(inputUrl).on('keyup', function () {
   return enableButton();
 });
 
-function isUrl() {
-  var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-  return regexp.test(s);
-}
-
 $(submitButton).on('click', function () {
-  if (inputAreEmpty()) { return alertMessage(); }
-  if (!isUrl())$('.input-url-field').value {
-    return errorMessage.innerText = "💀💀Please enter a valid web address."; }
-  return saveBookmark();
+  if (!(testUrl($('.input-url-field').val()))) {
+    errorMessage.innerText = "💀💀Please enter a valid web address.";
+  }
+  // if (inputAreEmpty()) { return alertMessage(); }
+  if (testUrl($('.input-url-field').val())) {
+    errorMessage.innerText = "";
+    return saveBookmark(); }
 });
 
 
@@ -104,7 +112,7 @@ $('.secondary-content').on('click', '.clear-read-button', function() {
 function bookmarkTemplate(title, url) {
   return "<li class='bookmark'>" +
         "<div class='display-title-field'>" + title +
-         "<div><a href='" + "http://" + url + "' class='display-url-field' target='_blank'>" + url + "</a></div>" +
+         "<div><a href='" + url + "' class='display-url-field' target='_blank'>" + url + "</a></div>" +
          "<button type='button' class='read-button'>Read</button>" +
          "<button type='button' class='remove-button'>Remove</button>"
          "</li>"
