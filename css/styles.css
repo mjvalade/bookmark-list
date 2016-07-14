@@ -1,12 +1,13 @@
 body {
   font-family: 'Secular One', sans-serif;
-  background: url(../books.jpg) no-repeat;
-  /*background-size: cover;*/
-  /*min-height: 600px;*/
   background-color: #377BA6;
 
 }
 
+header {
+  background: url(../books.jpg) no-repeat;
+  width: 100%;
+}
 .container {
   width: 90%;
   margin: auto;
@@ -23,8 +24,8 @@ h1 {
   margin-bottom: 20px;
   text-align: center;
   color: white;
-  background-color: #377BA6;
-}
+/*   background-color: #377BA6;
+ */}
 
 h2 {
   font-size: 300%;
@@ -67,7 +68,8 @@ p {
   margin: auto;
   margin-top: 30px;
   text-align: center;
-  color: #377BA6;
+/*   color: #377BA6;
+ */  color: white;
 }
 
 /*Bookmarks list items*/
@@ -113,7 +115,7 @@ li {
   height: 75px;
   border: 5px solid #253140;
   border-radius: 10px;
-  background-color: #377BA6;
+  background-color: #D94A3D;
   padding-top: 5px;
   padding-left: 5px;
   margin-top: 25px;
@@ -132,6 +134,7 @@ button {
   margin: 5px;
   height: 25px;
   width: 100px;
+  background-color: white;
 }
 
 .read-button,
@@ -154,7 +157,7 @@ button {
 }
 
 /* medium screens */
-@media screen and (max-width: 980px) {
+@media screen and (min-width: 980px) {
   .container {
   margin: 0 auto;
   width: 80%;
@@ -180,7 +183,8 @@ li {
   }
 
   li {
-    width: 40%;
+    height: 30%;
+    width: 45%;
     margin-bottom: 20px;
   }
 
