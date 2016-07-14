@@ -112,7 +112,7 @@ $('.secondary-content').on('click', '.clear-read-button', function() {
 function bookmarkTemplate(title, url) {
   return "<li class='bookmark'>" +
         "<div class='display-title-field'>" + title +
-         "<div><a href='" + url + "' class='display-url-field' target='_blank'>" + url + "</a></div>" +
+         "<div><a href='" + url + "' class='display-url-field' target='_blank'>" + 'GO!' + "</a></div>" +
          "<button type='button' class='read-button'>Read</button>" +
          "<button type='button' class='remove-button'>Remove</button>"
          "</li>"
