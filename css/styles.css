@@ -1,7 +1,6 @@
 body {
   font-family: 'Secular One', sans-serif;
   background-color: #377BA6;
-
 }
 
 header {
@@ -25,8 +24,7 @@ h1 {
   margin-bottom: 20px;
   text-align: center;
   color: white;
-/*   background-color: #377BA6;
- */}
+}
 
 h2 {
   font-size: 300%;
@@ -43,7 +41,6 @@ h2 {
 /*Input bookmarks*/
 
 .main-input {
-/*   border: 1px solid black;*/
   background-color: #D94A3D;
   border-radius: 10px;
   margin: auto;
@@ -69,8 +66,7 @@ p {
   margin: auto;
   margin-top: 30px;
   text-align: center;
-/*   color: #377BA6;
- */  color: white;
+  color: white;
 }
 
 /*Bookmarks list items*/
@@ -142,7 +138,6 @@ button {
 
 .read-button,
 .remove-button {
-  /*margin-left: 25px;*/
   margin-left: 15%;
   width: 25%;
 }
@@ -163,25 +158,24 @@ button {
 /* medium screens */
 @media screen and (max-width: 1020px) {
   .container {
-  margin: 0 auto;
-  width: 80%;
-}
-
-li {
-  /*height: 120px;*/
-  height: 75px;
-  width: 35%;
+    margin: 0 auto;
+    width: 80%;
   }
 
-.read-button,
-.remove-button {
+  li {
+    height: 75px;
+    width: 35%;
+  }
+
+  .read-button,
+  .remove-button {
     margin-left: 10%;
   }
 }
 
 @media screen and (max-width: 750px) {
-.read-button,
-.remove-button {
+  .read-button,
+  .remove-button {
     width: 40%;
     margin-left: 5%;
   }
@@ -193,7 +187,7 @@ li {
   }
 }
 
- /*small screens*/
+/*small screens*/
 @media screen and (max-width: 600px) {
   h1 {
     width: 90%;

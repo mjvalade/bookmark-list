@@ -20,18 +20,13 @@ function saveBookmark(count) {
   getTotalCount();
 }
 
-// function testUrl(validity) {
-//  var testingUrl = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-//  return testingUrl.test(validity);
-// }
-
 function testUrl(s) {
- var testingUrl = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
- return testingUrl.test(s);
+  var testingUrl = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+  return testingUrl.test(s);
 }
 
 function alertMessage() {
-    errorMessage.innerText = "Please fill out both fields.";
+  errorMessage.innerText = "Please fill out both fields.";
 }
 
 function inputAreEmpty() {
@@ -88,32 +83,30 @@ $(submitButton).on('click', function () {
   if (testUrl($('.input-url-field').val())) {
     errorMessage.innerText = "";
     return saveBookmark(); }
-});
+  });
 
+  $('.list1').on('click', '.read-button', function () {
+    $(this).parents('.bookmark').toggleClass("red");
+    getTotalReadCount();
+    getTotalUnreadCount();
+  });
 
+  $('.list1').on('click', '.remove-button', function () {
+    $(this).parents('.bookmark').remove();
+    getTotalCount();
+    getTotalReadCount();
+    getTotalUnreadCount();
+  });
 
-$('.list1').on('click', '.read-button', function () {
-  $(this).parents('.bookmark').toggleClass("red");
-  getTotalReadCount();
-  getTotalUnreadCount();
-});
+  $('.secondary-content').on('click', '.clear-read-button', function() {
+    clearRedBookmarks();
+  });
 
-$('.list1').on('click', '.remove-button', function () {
-  $(this).parents('.bookmark').remove();
-  getTotalCount();
-  getTotalReadCount();
-  getTotalUnreadCount();
-});
-
-$('.secondary-content').on('click', '.clear-read-button', function() {
-  clearRedBookmarks();
-});
-
-function bookmarkTemplate(title, url) {
-  return "<li class='bookmark'>" +
-        "<div class='display-title-field'>" + title +
-         "<div><a href='" + url + "' class='display-url-field' target='_blank'>" + 'GO!' + "</a></div>" +
-         "<button type='button' class='read-button'>Read</button>" +
-         "<button type='button' class='remove-button'>Remove</button>"
-         "</li>"
-}
+  function bookmarkTemplate(title, url) {
+    return "<li class='bookmark'>" +
+    "<div class='display-title-field'>" + title +
+    "<div><a href='" + url + "' class='display-url-field' target='_blank'>" + 'GO!' + "</a></div>" +
+    "<button type='button' class='read-button'>Read</button>" +
+    "<button type='button' class='remove-button'>Remove</button>" +
+    "</li>";
+  }
